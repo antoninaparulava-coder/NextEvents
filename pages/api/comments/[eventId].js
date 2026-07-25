@@ -5,13 +5,13 @@ function handler(req, res) {
         const { email, name, text} = req.body;
 
         if(
-            !email.include('@')||
+            !email.includes('@')||
             !name||
             name.trim() === '' ||
             !text ||
             text.trim() === ''
         ){
-            res.state(422).json({ message: 'Invalid input.' })
+            res.status(422).json({ message: 'Invalid input.' })
             return;
         }
 
@@ -33,7 +33,7 @@ function handler(req, res) {
             { id: 'c2', name: 'Manuel', text: 'A second comment!'},
         ];
 
-        res.status(200).json({ comments: dammuList })
+        res.status(200).json({ comments: dummyList })
     }
 }
 
