@@ -10,11 +10,11 @@ async function handler(req, res) {
         }
 
         const client = await MongoClient.connect(
-            'mongodb://localhost:27017/newsletter'
+            'mongodb://localhost:27017/events'
         )
         const db = client.db();
 
-        await db.collection('emails').insertOne({email: userEmail});
+        await db.collection('newsletter').insertOne({email: userEmail});
 
         client.close();
 
